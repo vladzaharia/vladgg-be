@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "name": "Projects"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "media": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "links": {
+      "collection": "links"
+    },
+    "technologies": {
+      "collection": "technologies"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Personal",
+        "Work",
+        "School"
+      ]
+    },
+    "blurb": {
+      "type": "text"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
